@@ -1,8 +1,14 @@
-type Props = {
-  params: {
-    dynamic: string;
-  };
+type Params = {
+  dynamic: string;
 };
+
+type Props = {
+  params: Params;
+};
+
+export async function generateStaticParams(): Promise<Params[]> {
+  return [{ dynamic: "three" }, { dynamic: "four" }];
+}
 
 export default async function Page({ params }: Props) {
   await fetch(`https://postman-echo.com/delay/5?from=${params.dynamic}`);
