@@ -1,3 +1,4 @@
+import { CACHE_BUSTER } from "@/app/constants";
 import { unstable_setRequestLocale } from "next-intl/server";
 import { draftMode } from "next/headers";
 
@@ -28,7 +29,7 @@ export default async function Page({ params }: Props) {
   console.log("Rendering page " + params.dynamic);
 
   await fetch(
-    `https://postman-echo.com/delay/5?r=2&from=${params.dynamic}&locale=${params.locale}`
+    `https://postman-echo.com/delay/5?r=${CACHE_BUSTER}&from=${params.dynamic}&locale=${params.locale}`
   );
 
   return (

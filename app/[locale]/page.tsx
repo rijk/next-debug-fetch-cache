@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { unstable_setRequestLocale } from "next-intl/server";
+import { CACHE_BUSTER } from "../constants";
 
 type Props = {
   params: {
@@ -15,8 +16,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <main>
-      Home (r=2)
-      {/* <h1 className="font-bold">{t("title")}</h1> */}
+      Home (r={CACHE_BUSTER}){/* <h1 className="font-bold">{t("title")}</h1> */}
     </main>
   );
 }
