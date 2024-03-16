@@ -1,6 +1,8 @@
 import { unstable_setRequestLocale } from "next-intl/server";
 import { draftMode } from "next/headers";
 
+export const runtime = "edge";
+
 type Params = {
   dynamic: string;
   locale: string;

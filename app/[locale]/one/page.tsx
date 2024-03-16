@@ -1,5 +1,7 @@
 import { unstable_setRequestLocale } from "next-intl/server";
 
+export const runtime = "edge";
+
 type Props = {
   params: {
     locale: string;
