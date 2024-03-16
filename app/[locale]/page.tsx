@@ -15,7 +15,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <main>
-      Home
+      Home (r=2)
       {/* <h1 className="font-bold">{t("title")}</h1> */}
     </main>
   );

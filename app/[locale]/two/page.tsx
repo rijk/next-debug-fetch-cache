@@ -10,7 +10,7 @@ type Props = {
 export default async function Page({ params }: Props) {
   unstable_setRequestLocale(params.locale);
   const preview = draftMode().isEnabled;
-  await fetch("https://postman-echo.com/delay/5?r=1&locale=" + params.locale);
+  await fetch("https://postman-echo.com/delay/5?r=2&locale=" + params.locale);
 
   return (
     <main>

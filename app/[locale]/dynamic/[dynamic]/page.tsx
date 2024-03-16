@@ -28,7 +28,7 @@ export default async function Page({ params }: Props) {
   console.log("Rendering page " + params.dynamic);
 
   await fetch(
-    `https://postman-echo.com/delay/5?r=1&from=${params.dynamic}&locale=${params.locale}`
+    `https://postman-echo.com/delay/5?r=2&from=${params.dynamic}&locale=${params.locale}`
   );
 
   return (
