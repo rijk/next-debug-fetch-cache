@@ -23,8 +23,10 @@ export default async function Page({ params }: Props) {
   unstable_setRequestLocale(params.locale);
   const preview = draftMode().isEnabled;
 
+  console.log("Rendering page " + params.dynamic);
+
   await fetch(
-    `https://postman-echo.com/delay/5?from=${params.dynamic}&locale=${params.locale}`
+    `https://postman-echo.com/delay/5?r=1&from=${params.dynamic}&locale=${params.locale}`
   );
 
   return (

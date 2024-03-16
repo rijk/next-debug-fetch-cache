@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, Suspense } from "react";
 import { Link } from "@/navigation";
 import { unstable_setRequestLocale } from "next-intl/server";
+import Cart from "./cart";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,6 +45,9 @@ export default function RootLayout({
           >
             Four (dynamic)
           </Link>
+          <Suspense fallback="No cart">
+            <Cart />
+          </Suspense>
         </nav>
         {children}
       </body>
