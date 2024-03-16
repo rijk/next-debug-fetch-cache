@@ -1,35 +1,25 @@
 import { CACHE_BUSTER } from "@/app/constants";
-import { unstable_setRequestLocale } from "next-intl/server";
 import { draftMode } from "next/headers";
-
-export const runtime = "edge";
 
 type Params = {
   dynamic: string;
-  locale: string;
 };
 
 type Props = {
   params: Params;
 };
 
-export async function generateStaticParams({
-  params: { locale },
-}: Props): Promise<Params[]> {
-  return [
-    { locale, dynamic: "three" },
-    { locale, dynamic: "four" },
-  ];
+export async function generateStaticParams(): Promise<Params[]> {
+  return [{ dynamic: "three" }, { dynamic: "four" }];
 }
 
 export default async function Page({ params }: Props) {
-  unstable_setRequestLocale(params.locale);
   const preview = draftMode().isEnabled;
 
   console.log("Rendering page " + params.dynamic);
 
   await fetch(
-    `https://postman-echo.com/delay/5?r=${CACHE_BUSTER}&from=${params.dynamic}&locale=${params.locale}`
+    `https://postman-echo.com/delay/5?r=${CACHE_BUSTER}&from=${params.dynamic}`
   );
 
   return (
